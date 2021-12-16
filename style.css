@@ -1,0 +1,173 @@
+html {
+    font-size: clamp(12px, 12px + 1vw, 18px);
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #1EC2DB;
+    font-family: sans-serif;
+    transition: background-image 5s;
+}
+
+body.nuit {
+    background-image: linear-gradient(to top, #2C56AF, #030D24);
+}
+
+
+h1 {
+    width: fit-content;
+    margin: 2rem auto;
+    color: white;
+}
+
+.lightText {
+    color: white;
+}
+
+
+.lightIcon {
+    /* 
+        brightness(0) sets the image to black 
+        invert(1) fully inverts black to white
+    */
+    filter: brightness(0) invert(1);
+}
+
+.searchHeader {
+    width: 100%;
+    padding: 2rem;
+    background-color: coral;
+}
+
+form {
+    margin: 12px auto;
+    width: min(320px, 90%);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+form > input[type=search] {
+    border-radius: 4px;
+    font-size: 1.5rem;
+}
+
+.filterSearch {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.filterSearch > .days {
+    width: 8rem;
+    margin-left: 12px;
+    border-radius: 4px;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.filterSearch > input[type=submit] {
+    margin-left: 12px;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 1.5rem;
+    background-color: blue;
+    color: white;
+}
+
+@media screen and (min-width: 750px) {
+    form {
+        margin-inline: auto;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+    .filterSearch {
+        margin-top: 0px;
+    }
+}
+
+/* If using flexbox display
+.forecasts {
+    margin: 12px auto;
+    padding-bottom: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    grid-gap: 0.5rem;
+} 
+*/
+
+.cityLabel {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.forecasts {
+    --min-width: 200px;
+
+    width: 90%;
+    margin: 1rem auto;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax( min(100%, var(--min-width)), 1fr));
+}
+
+.forecasts-day {
+/* If using flexbox display
+    flex-basis: 45%; 
+*/ 
+    padding-bottom: 0.3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+.forecasts-icon {
+    height: 3.5rem;
+    width: 3.5rem;
+}
+
+/* If using flexbox display 
+@media screen and (min-width: 500px) {
+    .forecasts-day {
+        flex-basis: 30%;
+    }
+} 
+*/
+
+@media screen and (min-width: 800px) {
+    body {
+        height: 100vh;
+    }
+
+    .forecasts {
+        padding-inline: 1rem;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        grid-gap: 1.5rem;
+    }   
+
+    .forecasts-day {
+        font-size: 1.2rem;
+    }   
+
+    .forecasts-icon {
+        width: 4rem;
+        height: 4rem;
+    }
+}
+
